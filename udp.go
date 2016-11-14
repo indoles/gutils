@@ -42,10 +42,8 @@ func UdpServe(addr string, qf UDPQuitFunc, pf UDPProcessFunc) error {
 			continue
 		}
 		if address != nil {
-			fmt.Println("got message from ", address, " with n = ", n)
 			if n > 0 {
 				content := string(buf[0:n])
-				fmt.Println("from address ", address, " got message: ", content, n)
 				if content == ":quit\n" {
 					qf()
 					break
